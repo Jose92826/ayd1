@@ -1,5 +1,55 @@
 <html xmlns:c="http://www.concordion.org/2007/concordion">
+	 <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+	<body>
+	<h1 align="center">Pruebas de Aceptacion Sprint No. 2</h1>
 	
-	<span c:assertEquals="#var"></span>
+	<table style="HEIGHT:50%;WIDTH:100%; border: 1px">
+	<tr align="center" bottom="middle">
+		<th>No.</th>
+		<th>Descripción</th>
+		<th>Datos de Prueba</th>
+		<th>Resultado Esperado</th>
+	</tr>
+	<tr>
+	<!-- ################################# PRUEBA 1 ############################################ -->
+		<th>1</th>
+		<th>Ingresar una categoria con numeros al inicio de su nombre,
+			el sistema debera mostrar un mensaje de error indicando el problema</th>
+		<!-- El valor "1Estudios" es asignado a la var "categoria" -->
+		<th><span c:set="#categoria">1Estudios</span></th>
+		<!-- Se invoca a la funcion "getValidacionCategoriaNueva"
+	      y como parametro la var "categoria" -->
+		<th><span c:assertFalse="getValidacionCategoriaNueva(#categoria)">TRUE</span></th>
+	</tr>
+	<tr>
+		<!-- ################################# PRUEBA 2 ############################################ -->
+		<th>2</th>
+		<th>Ingresar caracteres especiales en el nombre de la categoria a crear
+		 	, el sistema debe Mostrar un mensaje indicando el error</th>
+		<!-- El valor "1Estudios" es asignado a la var "categoria" -->
+		<th><span c:set="#categoria">Estudi@s</span></th>
+		<!-- Se invoca a la funcion "getValidacionCategoriaNueva"
+	      y como parametro la var "categoria" -->
+		<th><span c:assertFalse="getValidacionCategoriaNueva(#categoria)">TRUE</span></th>
+	 	
+	</tr>
+	<tr>
+		<!-- ################################# PRUEBA 3 ############################################ -->
+		<th>3</th>
+		<th>Ingresar numeros como nombre de la categoria a crear
+		 	, el sistema debe Mostrar un mensaje indicando que esto no es valido</th>
+		<!-- El valor "1Estudios" es asignado a la var "categoria" -->
+		<th><span c:set="#categoria">123</span></th>
+		<!-- Se invoca a la funcion "getValidacionCategoriaNueva"
+	      y como parametro la var "categoria" -->
+		<th><span c:assertFalse="getValidacionCategoriaNueva(#categoria)">TRUE</span></th>
+	 	
+	</tr>
 	
+	</table>
+	<p><span c:assertTrue="getPrueba()">algo</span></p>
+	</body>
+		
 </html>
