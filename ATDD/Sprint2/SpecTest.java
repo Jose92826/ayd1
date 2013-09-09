@@ -17,7 +17,7 @@ import com.example.gestoreconocimo.Categoria;
 public class SpecTest {
 
 //comentario
-		
+		//cmentario
 	public boolean getValidacionCategoriaNueva(String categoria)
 	{
 	
