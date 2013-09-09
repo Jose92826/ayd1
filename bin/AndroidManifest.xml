@@ -38,6 +38,10 @@
             android:name="com.example.gestoreconocimo.Opciones"
             android:label="@string/title_activity_opciones" >
         </activity>
+        <activity
+            android:name="com.example.gestoreconocimo.Categoria"
+            android:label="@string/title_activity_categoria" >
+        </activity>
     </application>
 
 </manifest>

@@ -17,8 +17,8 @@ public class db extends SQLiteOpenHelper{
     	//se crea la tabla inicial gasto
         db.execSQL("CREATE TABLE gasto (_id  INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT, tipo TEXT, costo REAL, descripcion TEXT);");
         //tabla nombre del gasto
-        db.execSQL("CREATE TABLE nombre (nombre TEXT PRIMARY KEY);");
-        
+        db.execSQL("CREATE TABLE nombre (nombre TEXT PRIMARY KEY, padre TEXT DEFAULT '');");
+        //
         db.execSQL("CREATE TABLE usuario (nombre TEXT PRIMARY KEY, presupuesto TEXT, moneda TEXT);");
       
         //se insertan valores a la tabla
@@ -28,8 +28,14 @@ public class db extends SQLiteOpenHelper{
         db.execSQL("INSERT INTO nombre(nombre) VALUES('Merienda')");
         db.execSQL("INSERT INTO nombre(nombre) VALUES('Coca cola')");
         db.execSQL("INSERT INTO nombre(nombre) VALUES('Pasaje')");
-        
-      
+        //gastos fijos
+        db.execSQL("INSERT INTO nombre(nombre,padre) VALUES('Hipoteca','fijo')");
+        db.execSQL("INSERT INTO nombre(nombre,padre) VALUES('Luz','fijo')");
+        db.execSQL("INSERT INTO nombre(nombre,padre) VALUES('Agua','fijo')");
+        db.execSQL("INSERT INTO nombre(nombre,padre) VALUES('Telefono','fijo')");
+        db.execSQL("INSERT INTO nombre(nombre,padre) VALUES('Alienware','fijo')");
+        db.execSQL("INSERT INTO nombre(nombre,padre) VALUES('Internet','fijo')");
+        //
         db.execSQL("INSERT INTO usuario(nombre,presupuesto,moneda) VALUES('user','0.0','Q')");
       
     }

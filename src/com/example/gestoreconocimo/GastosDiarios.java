@@ -89,7 +89,7 @@ public class GastosDiarios extends Activity {
     public void set_adapter_nombre(Activity atv, String seleccion){
     	boolean vacio=false;
     	//lista de nombres de gastos
-    	String[] nombres=Opciones.getNombreCostos("SELECT nombre FROM nombre");
+    	String[] nombres=Opciones.getNombreCostos("SELECT nombre FROM nombre WHERE padre = ''");
     	//item seleccionado
     	int select=0;
     	
@@ -123,6 +123,7 @@ public class GastosDiarios extends Activity {
 			
 			ContentValues parametros = new ContentValues();   
 		    parametros.put("nombre",nuevo_nombre);
+		    parametros.put("padre","");
 		    boolean resultado=Opciones.insert("nombre",parametros);
 		    //acutalizando lista de nombres
 		    if(resultado)

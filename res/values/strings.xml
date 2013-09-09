@@ -8,5 +8,6 @@
     <string name="title_activity_configuraciones">Configuraciones</string>
     <string name="title_activity_gastos_diarios">GastosDiarios</string>
     <string name="title_activity_opciones">Opciones</string>
+    <string name="title_activity_categoria">Categoria</string>
 
 </resources>

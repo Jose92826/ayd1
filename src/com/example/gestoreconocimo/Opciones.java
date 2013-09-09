@@ -22,6 +22,7 @@ import android.widget.Toast;
 public class Opciones extends Activity {
 	//declaracion publica de botones
 	public static Button btn_gastos_diarios;
+	public static Button btn_gatosfijos;
 	public TextView presupuesto;
 	public TextView saldo;
 	//id publicas para activitys
@@ -40,6 +41,7 @@ public class Opciones extends Activity {
         Toast.makeText(getBaseContext(), "Base de datos preparada", Toast.LENGTH_LONG).show();
         //asignacion de botones de activity a variables boton
         btn_gastos_diarios = (Button) findViewById(R.id.btn_gastosdiarios);
+        btn_gatosfijos = (Button) findViewById(R.id.btn_gatosfijos);
         presupuesto = (TextView) findViewById(R.id.muestra_presu);
         saldo = (TextView) findViewById(R.id.saldo);
         //llamada a asignacion de eventos
@@ -50,6 +52,9 @@ public class Opciones extends Activity {
     private void muestr_presu(){
     	String[] presu = getNombreCostos("Select presupuesto  From usuario");
     	if(presu != null){
+    		btn_gastos_diarios.setEnabled(true);
+    		btn_gatosfijos.setEnabled(true);
+    		//
     		presupuesto.setText(presu[0]);
     		String[] sal = getNombreCostos("Select sum(costo)  From gasto");
     		try{
@@ -57,12 +62,12 @@ public class Opciones extends Activity {
     		}catch(Exception e){
     			saldo.setText("No ingresado");
     		}
-    	}
-    	else{
+    	}else{
     		btn_gastos_diarios.setEnabled(false);
+    		btn_gatosfijos.setEnabled(false);
+    	}
         presupuesto.setText("No configurado");	
         saldo.setText("No configurado");	
-    	}
     }
    /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -93,6 +98,16 @@ public class Opciones extends Activity {
 			public void onClick(View v) {
 				//carga activity de gastos diarios
 				Intent i = new Intent( Opciones.this, GastosDiarios.class );
+				//posible opcion de envio de parametros
+				//i.putExtra("parametro", "valor");
+				Opciones.this.startActivityForResult(i, INT_GASTOS_DIARIOS);
+			}
+        });
+    	btn_gatosfijos.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				//carga activity de gastos diarios
+				Intent i = new Intent( Opciones.this, Categoria.class );
 				//posible opcion de envio de parametros
 				//i.putExtra("parametro", "valor");
 				Opciones.this.startActivityForResult(i, INT_GASTOS_DIARIOS);
