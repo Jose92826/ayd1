@@ -1,5 +1,8 @@
 package com.example.gestoreconocimo;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.ContentValues;
@@ -13,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class Categoria extends Activity {
 	//lista de nombres para gasto
@@ -116,41 +120,70 @@ public class Categoria extends Activity {
 	
 	public void agregar_nombre(){
     	String nuevo_nombre=txt_agregar_nombre.getText().toString();
-    	final Activity atv=this;
-		if(!nuevo_nombre.equals("")){
-			//si es un nuevo nombre distinto de vacio, se agrega a la base de datos
-			
-			ContentValues parametros = new ContentValues();   
-		    parametros.put("nombre",nuevo_nombre);
-		    parametros.put("padre","fijo");
-		    boolean resultado=Opciones.insert("nombre",parametros);
-		    //acutalizando lista de nombres
-		    if(resultado)
-		    	set_adapter_nombre(atv,nuevo_nombre);
-		}else{
-			Opciones.mensaje(Categoria.this, null, "", "Ingrese un nombre", "");
-		}
+    	funcion_agregar_nombre(nuevo_nombre);
     }
+	
+	public boolean funcion_agregar_nombre(String nuevo_nombre){
+		
+		boolean rtn = true;
+			final Activity atv=this;
+			if(!nuevo_nombre.equals("")){
+				//si es un nuevo nombre distinto de vacio, se agrega a la base de datos
+				
+				boolean b=nuevo_nombre.matches("[a-zA-Z]+[a-zA-Z\\s0-9]*");
+				if(b){
+					ContentValues parametros = new ContentValues();   
+				    parametros.put("nombre",nuevo_nombre);
+				    parametros.put("padre","fijo");
+				    boolean resultado=Opciones.insert("nombre",parametros);
+				    //acutalizando lista de nombres
+				    Opciones.mensaje(Categoria.this, null, "", "Categoria agregada", "");
+				    if(resultado)
+				    	set_adapter_nombre(atv,nuevo_nombre);
+				}else{
+					Opciones.mensaje(Categoria.this, null, "", "Se necesita una categoria valida", "");
+					rtn = false;
+				}
+		}else{
+			Opciones.mensaje(Categoria.this, null, "", "Ingrese una categoria", "");
+			rtn = false;
+		}
+		return rtn;
+	}
 	
 	public void agregar_subnombre(){
     	String nuevo_nombre=txt_agregar_subnombre.getText().toString();
-    	final Activity atv=this;
     	String padre = spr_nombre.getSelectedItem().toString();
-		if(!nuevo_nombre.equals("") && !padre.equals("")){
-			//si es un nuevo nombre distinto de vacio, se agrega a la base de datos
-			
-			ContentValues parametros = new ContentValues();   
-		    parametros.put("nombre",nuevo_nombre);
-		    parametros.put("padre", padre);
-		    boolean resultado=Opciones.insert("nombre",parametros);
-		    //acutalizando lista de nombres
-		    if(resultado)
-		    	set_adapter_subnombre(atv,nuevo_nombre);
-		}else if(padre.equals("")){
-			Opciones.mensaje(Categoria.this, null, "", "Seleccione categoria padre", "");
-		}else{
-			Opciones.mensaje(Categoria.this, null, "", "Ingrese un nombre", "");
-		}
+    	funcion_agregar_subnombre(nuevo_nombre, padre);
+    }
+	
+	public boolean funcion_agregar_subnombre(String nuevo_nombre, String padre){
+		
+		boolean rtn = true;
+	    	final Activity atv=this;
+	    	if(!nuevo_nombre.equals("") && !padre.equals("")){
+				//si es un nuevo nombre distinto de vacio, se agrega a la base de datos
+	    		boolean b=nuevo_nombre.matches("[a-zA-Z]+[a-zA-Z\\s0-9]*");
+	    		if(b){
+		    		
+					ContentValues parametros = new ContentValues();   
+				    parametros.put("nombre",nuevo_nombre);
+				    parametros.put("padre", padre);
+				    boolean resultado=Opciones.insert("nombre",parametros);
+				    //acutalizando lista de nombres
+				    Opciones.mensaje(Categoria.this, null, "", "Subategoria agregada", "");
+				    if(resultado)
+				    	set_adapter_subnombre(atv,nuevo_nombre);
+	    		}else{
+	    			Opciones.mensaje(Categoria.this, null, "", "Se necesita una subcategoria valida", "");
+	    			rtn = false;
+	    		}
+			}else if(padre.equals("")){
+				Opciones.mensaje(Categoria.this, null, "", "Seleccione categoria padre", "");
+			}else{
+				Opciones.mensaje(Categoria.this, null, "", "Ingrese una subcategoria", "");
+			}
+		return rtn;
     }
 	
 	//etiquetas creadas por el usuario
@@ -189,7 +222,7 @@ public class Categoria extends Activity {
 	        spr_subnombre.setSelection(select, false);
     	}catch(Exception e){
     		spr_subnombre.setVisibility(View.GONE);
-        	Opciones.mensaje(Categoria.this, null, "", "Sin sub categorias", "");
+        	//Opciones.mensaje(Categoria.this, null, "", "Sin sub categorias", "");
     	}
     }
 	
