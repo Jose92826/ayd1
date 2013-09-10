@@ -227,7 +227,7 @@ public class Categoria extends Activity {
     }
 	
 	//etiquetas creadas por el usuario
-    public void set_adapter_nombre(Activity atv, String seleccion){
+    public  void set_adapter_nombre(Activity atv, String seleccion){
     	boolean vacio=false;
     	//lista de nombres de gastos
     	String[] nombres=Opciones.getNombreCostos("SELECT nombre FROM nombre WHERE padre = 'fijo'");
@@ -242,6 +242,7 @@ public class Categoria extends Activity {
         			select=j;
         	}
         }
+        
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(atv, android.R.layout.simple_list_item_1, nombres);
         spr_nombre.setAdapter(adapter);
         if(vacio){

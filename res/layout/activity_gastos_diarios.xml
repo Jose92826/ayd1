@@ -142,7 +142,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.46"
             android:text="Cancelar" />
-
     </LinearLayout>
 
 </RelativeLayout>

@@ -17,8 +17,6 @@
         android:layout_marginLeft="19dp"
         android:orientation="vertical" >
 
-       
-
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
@@ -65,11 +63,10 @@
             android:text="tipo de moneda"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
- <Spinner
-     android:id="@+id/spr_monedas"
-     android:layout_width="145dp"
-     android:layout_height="wrap_content" />
-
+        <Spinner
+            android:id="@+id/spr_monedas"
+            android:layout_width="145dp"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <Button

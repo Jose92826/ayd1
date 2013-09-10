@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/G_agregar"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="Agregar un gasto ha esta categoria"/>
+    <item
+        android:id="@+id/G_ver "
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="Ver gastos de esta categoria"/>
+    
+    <item
+        android:id="@+id/G_nueva"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="nueva categoria"/>
+
+</menu>

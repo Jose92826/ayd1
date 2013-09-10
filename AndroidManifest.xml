@@ -42,6 +42,14 @@
             android:name="com.example.gestoreconocimo.Categoria"
             android:label="@string/title_activity_categoria" >
         </activity>
+        <activity
+            android:name="com.example.gestoreconocimo.Vercategorias"
+            android:label="@string/title_activity_vercategorias" >
+        </activity>
+        <activity
+            android:name="com.example.gestoreconocimo.Nueva_categoria"
+            android:label="@string/title_activity_nueva_categoria" >
+        </activity>
     </application>
 
 </manifest>

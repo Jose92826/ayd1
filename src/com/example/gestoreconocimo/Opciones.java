@@ -48,6 +48,8 @@ public class Opciones extends Activity {
         eventos();
         muestr_presu();
     }	
+    
+    
  // metodo para mostar presupuesto en pantalla
     private void muestr_presu(){
     	String[] presu = getNombreCostos("Select presupuesto  From usuario");
@@ -97,7 +99,7 @@ public class Opciones extends Activity {
 			@Override
 			public void onClick(View v) {
 				//carga activity de gastos diarios
-				Intent i = new Intent( Opciones.this, GastosDiarios.class );
+				Intent i = new Intent( Opciones.this,GastosDiarios.class );
 				//posible opcion de envio de parametros
 				//i.putExtra("parametro", "valor");
 				Opciones.this.startActivityForResult(i, INT_GASTOS_DIARIOS);
@@ -107,7 +109,7 @@ public class Opciones extends Activity {
 			@Override
 			public void onClick(View v) {
 				//carga activity de gastos diarios
-				Intent i = new Intent( Opciones.this, Categoria.class );
+				Intent i = new Intent( Opciones.this,Vercategorias.class );
 				//posible opcion de envio de parametros
 				//i.putExtra("parametro", "valor");
 				Opciones.this.startActivityForResult(i, INT_GASTOS_DIARIOS);

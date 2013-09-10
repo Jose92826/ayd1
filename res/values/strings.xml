@@ -9,5 +9,7 @@
     <string name="title_activity_gastos_diarios">GastosDiarios</string>
     <string name="title_activity_opciones">Opciones</string>
     <string name="title_activity_categoria">Categoria</string>
+    <string name="title_activity_vercategorias">Vercategorias</string>
+    <string name="title_activity_nueva_categoria">Nueva_categoria</string>
 
 </resources>
