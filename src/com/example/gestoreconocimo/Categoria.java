@@ -118,6 +118,13 @@ public class Categoria extends Activity {
         Categoria.this.finish();
 	}
 	
+	
+	
+	
+	
+	
+	
+	
 	public void agregar_nombre(){
     	String nuevo_nombre=txt_agregar_nombre.getText().toString();
     	funcion_agregar_nombre(nuevo_nombre);
@@ -150,6 +157,15 @@ public class Categoria extends Activity {
 		}
 		return rtn;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public void agregar_subnombre(){
     	String nuevo_nombre=txt_agregar_subnombre.getText().toString();
