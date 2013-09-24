@@ -15,7 +15,7 @@ public class db extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
     	//se crea la tabla inicial gasto
-        db.execSQL("CREATE TABLE gasto (_id  INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT, tipo TEXT, costo REAL, descripcion TEXT);");
+        db.execSQL("CREATE TABLE gasto (_id  INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT, tipo TEXT, costo REAL, descripcion TEXT, vence TEXT DEFAULT '', periodo TEXT DEFAULT '', nombre_padre TEXT DEFAULT '');");
         //tabla nombre del gasto
         db.execSQL("CREATE TABLE nombre (nombre TEXT PRIMARY KEY, padre TEXT DEFAULT '');");
         //

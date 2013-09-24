@@ -50,7 +50,7 @@
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/gflbl_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Crear una nueva subcategoria" />

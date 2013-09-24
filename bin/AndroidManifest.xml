@@ -50,6 +50,10 @@
             android:name="com.example.gestoreconocimo.Nueva_categoria"
             android:label="@string/title_activity_nueva_categoria" >
         </activity>
+        <activity
+            android:name="com.example.gestoreconocimo.Gastofijo"
+            android:label="@string/title_activity_gastofijo" >
+        </activity>
     </application>
 
 </manifest>

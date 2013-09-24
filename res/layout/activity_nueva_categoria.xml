@@ -21,14 +21,14 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/editText1"
-        android:layout_alignBottom="@+id/editText1"
+        android:layout_alignBaseline="@+id/gftxt_costo"
+        android:layout_alignBottom="@+id/gftxt_costo"
         android:layout_alignParentLeft="true"
         android:text="NOMBRE"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/gftxt_costo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/textView1"
@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView2"
-        android:layout_below="@+id/editText1"
+        android:layout_below="@+id/gftxt_costo"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:text="Crear categoria" />

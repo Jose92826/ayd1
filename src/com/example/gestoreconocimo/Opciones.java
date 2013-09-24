@@ -109,7 +109,7 @@ public class Opciones extends Activity {
 			@Override
 			public void onClick(View v) {
 				//carga activity de gastos diarios
-				Intent i = new Intent( Opciones.this,Vercategorias.class );
+				Intent i = new Intent( Opciones.this,Gastofijo.class );
 				//posible opcion de envio de parametros
 				//i.putExtra("parametro", "valor");
 				Opciones.this.startActivityForResult(i, INT_GASTOS_DIARIOS);

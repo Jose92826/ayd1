@@ -30,7 +30,7 @@ public class Nueva_categoria extends Activity {
 		
 		crear = (Button) findViewById(R.id.btn_crear);
 		cancelar=(Button)findViewById(R.id.btn_cancelar);
-		nuevo_nombre = (EditText)findViewById(R.id.editText1);
+		nuevo_nombre = (EditText)findViewById(R.id.gftxt_costo);
 		nuevo_nombre.setText(prueva);
 		
 		eventos();
@@ -62,7 +62,7 @@ public class Nueva_categoria extends Activity {
 				//agregando nombre
 			    prueva =  nuevo_nombre.getText().toString(); 
 				funcion_agregar_nombre( prueva);
-				 Intent i = new Intent(Nueva_categoria.this,Vercategorias.class );
+				 Intent i = new Intent(Nueva_categoria.this,Gastofijo.class );
 		           Nueva_categoria.this.startActivityForResult(i,0);
 		           Nueva_categoria.this.finish();
 			}
@@ -72,7 +72,7 @@ public class Nueva_categoria extends Activity {
 			@Override
 			public void onClick(View v) {
 				//agregando nombre
-				 Intent i = new Intent(Nueva_categoria.this,Vercategorias.class );
+				 Intent i = new Intent(Nueva_categoria.this,Gastofijo.class );
 		           Nueva_categoria.this.startActivityForResult(i,0);
 		           Nueva_categoria.this.finish();
 			}
